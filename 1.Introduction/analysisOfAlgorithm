@@ -1,0 +1,13 @@
+In this chapter I learned mostly about how to analyse different function on the basis of the time taken by them individually.
+
+In this we have three functions/methods that return sum of first n natural numbers.
+
+func 1 => (n*n+1)/2
+
+func 2 => for loop between 1 to n and return addition of each element.
+
+func 3 => uased 2 loops i to itetrate between 1 to n and the second one is between 1 to i and returns the sum. SOmething like 1 + (1+1) + (1+1+1) ......
+
+After that we learn about the direct way of comparing the order of growth of two functions and complex programs along with the 3 major Asymptotic Notations.
+
+Asymptotic analysis, namely Big O notation(upper bound), Theta Notation(exact bound) and the Omega Notation(lower bound).
