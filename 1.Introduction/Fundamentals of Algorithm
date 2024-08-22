@@ -1,3 +1,15 @@
+In this We cover the following
+- Analysis of Algorithm
+- Order of Growth
+- Asymtotic notations
+  - Big O notation
+  - Omega Notation
+  - Theta Notation
+- Analysis of Common loops
+- Analysis of recursion
+- Recursion Tree method to solve recurences
+- Space Complexity
+
 In this chapter I learned mostly about how to analyse different function on the basis of the time taken by them individually.
 
 In this we have three functions/methods that return sum of first n natural numbers.
@@ -11,3 +23,8 @@ func 3 => uased 2 loops i to itetrate between 1 to n and the second one is betwe
 After that we learn about the direct way of comparing the order of growth of two functions and complex programs along with the 3 major Asymptotic Notations.
 
 Asymptotic analysis, namely Big O notation(upper bound), Theta Notation(exact bound) and the Omega Notation(lower bound).
+
+
+Space Complexity
+Under this we analyse the space complexities of any iterative or recursive mechanism.
+We mostly focus on auxiliary space complexity.
