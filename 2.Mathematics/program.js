@@ -95,10 +95,28 @@ const trailingZeroEfficient = (n) => {
   return res;
 }
 
+/**
+ * Finds the Greatest Common Divisor (GCD) or Highest Common Factor (HCF) of two numbers.
+ * The GCD of two numbers is the largest number that divides both of them without leaving a remainder.
+ * 
+ * @param {number} n1 - The first number.
+ * @param {number} n2 - The second number.
+ * @returns {number} The GCD or HCF of the two numbers.
+ */
+const findGreatestCommonDivisorOrHCF = (n1, n2) => {
+  let smaller = n1 < n2 ? n1 : n2;  // Determine the smaller of the two numbers
+  for (let i = smaller; i > 0; i--) {  // Loop from the smaller number down to 1
+    if (n1 % i === 0 && n2 % i === 0) {  // Check if i divides both n1 and n2
+      return i;  // Return the greatest common divisor
+    }
+  }
+}
+
 console.log(countDigit(1001));  // Output: 4
 console.log(palindromeNumber(1001));  // Output: true
 console.log(factorial1(5));  // Output: 120
 console.log(factorial2(5));  // Output: 120
 console.log(trailingZeroNaive(15));  // Output: 3
 console.log(trailingZeroEfficient(100));  // Output: 24
+console.log(findGreatestCommonDivisorOrHCF(4, 6));  // Output: 2
 
