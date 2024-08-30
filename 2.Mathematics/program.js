@@ -1,3 +1,4 @@
+
 /**
  * Counts the number of digits in a given number.
  * 
@@ -112,6 +113,27 @@ const findGreatestCommonDivisorOrHCF = (n1, n2) => {
   }
 }
 
+/**
+ * Finds the Greatest Common Divisor (GCD) or Highest Common Factor (HCF) of two numbers
+ * using the Euclidean algorithm.
+ * The Euclidean algorithm works by repeatedly subtracting the smaller number from the larger one
+ * until the two numbers become equal. This number is the GCD.
+ * 
+ * @param {number} n1 - The first number.
+ * @param {number} n2 - The second number.
+ * @returns {number} The GCD or HCF of the two numbers.
+ */
+const findGreatestCommonDivisorOrHCFWithEuclideanAlgo = (n1, n2) => {
+  while (n1 !== n2) {  // Continue until both numbers are equal
+    if (n1 > n2) {
+      n1 = n1 - n2;  // Subtract the smaller number from the larger one
+    } else {
+      n2 = n2 - n1;  // Subtract the smaller number from the larger one
+    }
+  }
+  return n1;  // Return the GCD, which is the value of n1 (or n2) when both are equal
+}
+
 console.log(countDigit(1001));  // Output: 4
 console.log(palindromeNumber(1001));  // Output: true
 console.log(factorial1(5));  // Output: 120
@@ -119,4 +141,6 @@ console.log(factorial2(5));  // Output: 120
 console.log(trailingZeroNaive(15));  // Output: 3
 console.log(trailingZeroEfficient(100));  // Output: 24
 console.log(findGreatestCommonDivisorOrHCF(4, 6));  // Output: 2
+console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgo(4, 6));  // Output: 2
+
 
