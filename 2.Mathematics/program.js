@@ -134,6 +134,24 @@ const findGreatestCommonDivisorOrHCFWithEuclideanAlgo = (n1, n2) => {
   return n1;  // Return the GCD, which is the value of n1 (or n2) when both are equal
 }
 
+/**
+ * Finds the Greatest Common Divisor (GCD) or Highest Common Factor (HCF) of two numbers
+ * using the optimized Euclidean algorithm with recursion.
+ * The Euclidean algorithm works by recursively replacing the larger number with its remainder
+ * when divided by the smaller number until the remainder is 0.
+ * 
+ * @param {number} n1 - The first number.
+ * @param {number} n2 - The second number.
+ * @returns {number} The GCD or HCF of the two numbers.
+ */
+const findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized = (n1, n2) => {
+  if (n2 === 0) {  // Base case: when n2 is 0, n1 is the GCD
+    return n1;
+  } else {
+    return findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized(n2, n1 % n2);  // Recursive case
+  }
+}
+
 console.log(countDigit(1001));  // Output: 4
 console.log(palindromeNumber(1001));  // Output: true
 console.log(factorial1(5));  // Output: 120
@@ -142,5 +160,6 @@ console.log(trailingZeroNaive(15));  // Output: 3
 console.log(trailingZeroEfficient(100));  // Output: 24
 console.log(findGreatestCommonDivisorOrHCF(4, 6));  // Output: 2
 console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgo(4, 6));  // Output: 2
+console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized(56, 98));  // Output: 14
 
 
