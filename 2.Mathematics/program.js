@@ -184,6 +184,22 @@ const findLcmOptimized = (n1, n2) => {
   return (n1 * n2) / gcd;  // Calculate and return LCM using the GCD
 }
 
+/**
+ * Checks if a number is prime using a naive approach.
+ * A prime number is a natural number greater than 1 that is not divisible
+ * by any number other than 1 and itself.
+ * 
+ * @param {number} n - The number to check for primality.
+ * @returns {boolean} `true` if the number is prime, `false` otherwise.
+ */
+const isNumberPrimeNaive = (n) => {
+  if (n === 1) return false;  // 1 is not considered a prime number
+  for (let i = 2; i < n; i++) {  // Check divisibility from 2 to n-1
+    if (n % i === 0) return false;  // If divisible, n is not prime
+  }
+  return true;  // If no divisors are found, n is prime
+}
+
 console.log(countDigit(1001));  // Output: 4
 console.log(palindromeNumber(1001));  // Output: true
 console.log(factorial1(5));  // Output: 120
@@ -195,5 +211,6 @@ console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgo(4, 6));  // Output: 
 console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized(56, 98));  // Output: 14
 console.log(findLcmNaive(4, 6));  // Output: 12
 console.log(findLcmOptimized(4, 6));  // Output: 12
+console.log(isNumberPrimeNaive(71));  // Output: true
 
 
