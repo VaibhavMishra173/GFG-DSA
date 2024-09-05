@@ -152,6 +152,38 @@ const findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized = (n1, n2) => {
   }
 }
 
+/**
+ * Finds the Least Common Multiple (LCM) of two numbers using a naive method.
+ * The method starts with the maximum of the two numbers and checks each number incrementally
+ * to see if it is divisible by both numbers.
+ * 
+ * @param {number} n1 - The first number.
+ * @param {number} n2 - The second number.
+ * @returns {number} The LCM of the two numbers.
+ */
+const findLcmNaive = (n1, n2) => {
+  let max = Math.max(n1, n2);  // Start with the maximum of n1 and n2
+  while (true) {
+    if (max % n1 === 0 && max % n2 === 0) {  // Check if max is divisible by both numbers
+      return max;  // Return the LCM when found
+    }
+    max++;  // Increment max to check the next potential LCM
+  }
+}
+
+/**
+ * Finds the Least Common Multiple (LCM) of two numbers using an optimized method.
+ * This method calculates the LCM using the relationship: LCM(a, b) = (a * b) / GCD(a, b).
+ * 
+ * @param {number} n1 - The first number.
+ * @param {number} n2 - The second number.
+ * @returns {number} The LCM of the two numbers.
+ */
+const findLcmOptimized = (n1, n2) => {
+  const gcd = findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized(n1, n2);  // Find GCD using Euclidean algorithm
+  return (n1 * n2) / gcd;  // Calculate and return LCM using the GCD
+}
+
 console.log(countDigit(1001));  // Output: 4
 console.log(palindromeNumber(1001));  // Output: true
 console.log(factorial1(5));  // Output: 120
@@ -161,5 +193,7 @@ console.log(trailingZeroEfficient(100));  // Output: 24
 console.log(findGreatestCommonDivisorOrHCF(4, 6));  // Output: 2
 console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgo(4, 6));  // Output: 2
 console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized(56, 98));  // Output: 14
+console.log(findLcmNaive(4, 6));  // Output: 12
+console.log(findLcmOptimized(4, 6));  // Output: 12
 
 
