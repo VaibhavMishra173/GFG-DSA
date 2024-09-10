@@ -240,6 +240,27 @@ const isNumberPrimeMoreOptimized = (n) => {
   return true;  // If no divisors are found, n is prime
 }
 
+/**
+ * Finds and returns all prime factors of a given number n.
+ * This is a naive approach that checks every number from 2 to n.
+ * 
+ * @param {number} n - The number to find prime factors for.
+ * @returns {number[]} An array of prime factors of n.
+ */
+const findPrimeFactorsNaive = (n) => {
+  let arr = [];
+  
+  // Loop through all numbers from 2 to n
+  for (let i = 2; i <= n; i++) {
+    // Check if i is a divisor of n and if i is prime
+    if (n % i === 0 && isNumberPrimeMoreOptimized(i)) {
+      arr.push(i);
+    }
+  }
+  
+  return arr;
+}
+
 console.log(countDigit(1001));  // Output: 4
 console.log(palindromeNumber(1001));  // Output: true
 console.log(factorial1(5));  // Output: 120
@@ -254,5 +275,6 @@ console.log(findLcmOptimized(4, 6));  // Output: 12
 console.log(isNumberPrimeNaive(71));  // Output: true
 console.log(isNumberPrimeOptimized(71));  // Output: true
 console.log(isNumberPrimeMoreOptimized(71));  // Output: true
+console.log(findPrimeFactorsNaive(12));  // Output: [2, 3]
 
 
