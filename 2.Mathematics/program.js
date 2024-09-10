@@ -200,6 +200,46 @@ const isNumberPrimeNaive = (n) => {
   return true;  // If no divisors are found, n is prime
 }
 
+/**
+ * Checks if a number is prime using an optimized approach.
+ * A prime number is a natural number greater than 1 that is not divisible
+ * by any number other than 1 and itself.
+ * 
+ * This function optimizes the process by only checking for factors up to
+ * the square root of the number.
+ * 
+ * @param {number} n - The number to check for primality.
+ * @returns {boolean} `true` if the number is prime, `false` otherwise.
+ */
+const isNumberPrimeOptimized = (n) => {
+  if (n === 1) return false;  // 1 is not a prime number
+  for (let i = 2; i * i <= n; i++) {  // Only check divisibility up to √n
+    if (n % i === 0) return false;  // If divisible, n is not prime
+  }
+  return true;  // If no divisors are found, n is prime
+}
+
+/**
+ * Checks if a number is prime using an even more optimized approach.
+ * This function skips checking even numbers and multiples of 3 after handling
+ * the smallest prime numbers (2 and 3) separately.
+ * 
+ * The loop checks potential divisors of the form 6k ± 1 up to the square root of n.
+ * 
+ * @param {number} n - The number to check for primality.
+ * @returns {boolean} `true` if the number is prime, `false` otherwise.
+ */
+const isNumberPrimeMoreOptimized = (n) => {
+  if (n === 1) return false;  // 1 is not prime
+  if (n === 2 || n === 3) return true;  // 2 and 3 are prime numbers
+  if (n % 2 === 0 || n % 3 === 0) return false;  // Eliminate multiples of 2 and 3
+
+  for (let i = 5; i * i <= n; i += 6) {  // Check divisibility by 6k ± 1
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+  }
+  return true;  // If no divisors are found, n is prime
+}
+
 console.log(countDigit(1001));  // Output: 4
 console.log(palindromeNumber(1001));  // Output: true
 console.log(factorial1(5));  // Output: 120
@@ -212,5 +252,7 @@ console.log(findGreatestCommonDivisorOrHCFWithEuclideanAlgoOptimized(56, 98));  
 console.log(findLcmNaive(4, 6));  // Output: 12
 console.log(findLcmOptimized(4, 6));  // Output: 12
 console.log(isNumberPrimeNaive(71));  // Output: true
+console.log(isNumberPrimeOptimized(71));  // Output: true
+console.log(isNumberPrimeMoreOptimized(71));  // Output: true
 
 
