@@ -160,3 +160,52 @@ def findAllDivisorsOfANumberFurtherOptimized(n):
 
 findAllDivisorsOfANumberFurtherOptimized(15)
 
+def isNumberPrimeOptimized(n):
+    """
+    Determines if a number n is prime.
+
+    This function checks if n is divisible by any number from 2 to the square root of n.
+    If n is divisible by any such number, it returns False, meaning n is not prime. Otherwise, it returns True.
+
+    Args:
+        n (int): The number to check for primality.
+
+    Returns:
+        bool: True if n is prime, False otherwise.
+
+    Example:
+        isNumberPrimeOptimized(7)
+        Output: True
+    """
+    if n == 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+def printPrimes(n):
+    """
+    Prints all prime numbers up to n.
+
+    This function iterates through all numbers from 2 to n and uses the isNumberPrimeOptimized function
+    to check if each number is prime. If a number is prime, it prints the number.
+
+    Args:
+        n (int): The upper limit (inclusive) for printing prime numbers.
+
+    Returns:
+        None: The function prints all prime numbers up to n.
+
+    Example:
+        printPrimes(10)
+        Output: 2, 3, 5, 7
+    """
+    for i in range(2, n + 1):
+        if isNumberPrimeOptimized(i):
+            print(i)
+    return
+
+printPrimes(10)
+
