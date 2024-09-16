@@ -130,3 +130,33 @@ def findAllDivisorsOfANumberOptimized(n):
 # Test the function
 findAllDivisorsOfANumberOptimized(15)
 
+def findAllDivisorsOfANumberFurtherOptimized(n):
+    """
+    Finds and prints all divisors of a given number n in an optimized way.
+
+    This function iterates only up to the square root of n. For each divisor i found,
+    it prints both i and n//i in separate loops. 
+
+    Args:
+        n (int): The integer whose divisors are to be found.
+
+    Returns:
+        None: The function prints all divisors of n.
+
+    Example:
+        findAllDivisorsOfANumberFurtherOptimized(15)
+        Output: 1, 15, 3, 5
+    """
+    # First loop to find and print divisors up to sqrt(n)
+    for i in range(1, int(n ** 0.5) + 1):
+        if n % i == 0:
+            print(i)
+    
+    # Second loop to find and print the complementary divisors
+    for i in range(int(n ** 0.5), 0, -1):
+        if n % i == 0:
+            if i != n // i:
+                print(n // i)
+
+findAllDivisorsOfANumberFurtherOptimized(15)
+
