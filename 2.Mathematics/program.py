@@ -81,3 +81,52 @@ def findPrimeFactorsFurtherOptimized(n):
 findPrimeFactorsFurtherOptimized(450)
 findPrimeFactorsFurtherOptimized(84)
 
+def findAllDivisorOfANumber(n):
+    """
+    Finds and prints all divisors of a given number n.
+
+    This function iterates through all numbers from 1 to n and prints
+    those that divide n evenly (i.e., the remainder is zero).
+
+    Args:
+        n (int): The integer whose divisors are to be found.
+
+    Returns:
+        None: The function prints all divisors of n.
+
+    Example:
+        findAllDivisorOfANumber(15)
+        Output: 1, 3, 5, 15
+    """
+    for i in range(1, n + 1):
+        if n % i == 0:
+            print(i)
+    return
+
+findAllDivisorOfANumber(15)
+
+def findAllDivisorsOfANumberOptimized(n):
+    """
+    This function finds and prints all divisors of a given number 'n'.
+    It iterates up to the square root of 'n', printing both 'i' and 'n // i' when 'i' divides 'n'.
+
+    Args:
+    n (int): The number to find divisors of.
+
+    Returns:
+    None: The function prints each divisor of 'n'.
+    
+    Example:
+    findAllDivisorsOfANumberOptimized(15) -> 1, 15, 3, 5
+    """
+    
+    for i in range(1, int(n**0.5) + 1):  # Include sqrt(n) if it's an integer
+        if n % i == 0:  # Check if i is a divisor
+            print(i)  # Print the divisor
+            if i != n // i:  # Check if n // i is a distinct divisor
+                print(n // i)  # Print the corresponding larger divisor
+    return
+
+# Test the function
+findAllDivisorsOfANumberOptimized(15)
+
