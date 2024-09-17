@@ -295,3 +295,30 @@ def printPrimesSieveAlgoOptimizedShort(n):
     return
 
 printPrimesSieveAlgoOptimizedShort(10)
+
+def computePower(x, n):
+    """
+    Computes the power of a number x raised to the exponent n.
+
+    This function iterates from 1 to n, multiplying the result by x in each iteration 
+    to compute the power. It calculates x^n (x raised to the power of n).
+
+    Args:
+        x (int or float): The base number.
+        n (int): The exponent (the number of times to multiply the base).
+
+    Returns:
+        int or float: The result of x raised to the power n.
+
+    Example:
+        computePower(3, 4)
+        Output: 81 (since 3^4 = 81)
+    """
+    result = 1
+    for i in range(1, n + 1):
+        result = result * x
+    return result
+
+print(computePower(3, 4))  # Output: 81
+
+
