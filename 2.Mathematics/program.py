@@ -321,4 +321,34 @@ def computePower(x, n):
 
 print(computePower(3, 4))  # Output: 81
 
+def computePowerOptimized(x, n):
+    """
+    Computes the power of a number x raised to the exponent n using an optimized approach.
 
+    This function uses a recursive approach to calculate x^n. It leverages the property that:
+    - x^n = (x^(n//2))^2 when n is even
+    - x^n = x * (x^(n//2))^2 when n is odd
+
+    This reduces the time complexity from O(n) in the iterative approach to O(log n).
+
+    Args:
+        x (int or float): The base number.
+        n (int): The exponent (the number of times to multiply the base).
+
+    Returns:
+        int or float: The result of x raised to the power n.
+
+    Example:
+        computePowerOptimized(3, 5)
+        Output: 243 (since 3^5 = 243)
+    """
+    if n == 0:
+        return 1
+    temp = computePowerOptimized(x, n // 2)
+    temp *= temp
+    if n % 2 == 0:
+        return temp
+    else:
+        return temp * x
+
+print(computePowerOptimized(3, 5))  # Output: 243
