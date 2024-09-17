@@ -209,3 +209,32 @@ def printPrimes(n):
 
 printPrimes(10)
 
+def printPrimesSieveAlgo(n):
+    """
+    Prints all prime numbers up to n using the Sieve of Eratosthenes algorithm.
+
+    This function uses the Sieve of Eratosthenes to mark non-prime numbers in a boolean list.
+    Starting from 2, for each prime number, it marks its multiples as non-prime. 
+    After processing, all prime numbers are printed.
+
+    Args:
+        n (int): The upper limit (inclusive) for printing prime numbers.
+
+    Returns:
+        None: The function prints all prime numbers up to n.
+
+    Example:
+        printPrimesSieveAlgo(10)
+        Output: 2, 3, 5, 7
+    """
+    lst = [True] * (n + 1)  # Initialize a list to track primes
+    for i in range(2, int(n ** 0.5) + 1):
+        if lst[i]:  # If the number is prime
+            for j in range(i * i, n + 1, i):  # Mark multiples of i as non-prime
+                lst[j] = False
+    for i in range(2, n + 1):
+        if lst[i]:  # Print prime numbers
+            print(i)
+    return
+
+printPrimesSieveAlgo(10)
