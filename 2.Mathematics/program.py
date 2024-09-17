@@ -213,9 +213,9 @@ def printPrimesSieveAlgo(n):
     """
     Prints all prime numbers up to n using the Sieve of Eratosthenes algorithm.
 
-    This function uses the Sieve of Eratosthenes to mark non-prime numbers in a boolean list.
-    Starting from 2, for each prime number, it marks its multiples as non-prime. 
-    After processing, all prime numbers are printed.
+    This function creates a boolean list where indices represent numbers from 0 to n.
+    It marks non-prime numbers as False, starting from 2, and for each prime i, it marks
+    all its multiples as non-prime. Finally, it prints all numbers that are still marked as prime.
 
     Args:
         n (int): The upper limit (inclusive) for printing prime numbers.
@@ -227,14 +227,44 @@ def printPrimesSieveAlgo(n):
         printPrimesSieveAlgo(10)
         Output: 2, 3, 5, 7
     """
-    lst = [True] * (n + 1)  # Initialize a list to track primes
-    for i in range(2, int(n ** 0.5) + 1):
-        if lst[i]:  # If the number is prime
-            for j in range(i * i, n + 1, i):  # Mark multiples of i as non-prime
+    lst = [True] * (n + 1)
+    for i in range(2, int(n**0.5) + 1):
+        if lst[i]:
+            for j in range(2 * i, n + 1, i):
                 lst[j] = False
     for i in range(2, n + 1):
-        if lst[i]:  # Print prime numbers
+        if lst[i]:
             print(i)
     return
 
 printPrimesSieveAlgo(10)
+
+def printPrimesSieveAlgoOptimized(n):
+    """
+    Prints all prime numbers up to n using an optimized version of the Sieve of Eratosthenes algorithm.
+
+    This function marks non-prime numbers in a boolean list. Starting from 2, for each prime number i, 
+    it marks all its multiples as non-prime, starting from i * i (to avoid redundant checks for smaller numbers). 
+    After processing, all prime numbers up to n are printed.
+
+    Args:
+        n (int): The upper limit (inclusive) for printing prime numbers.
+
+    Returns:
+        None: The function prints all prime numbers up to n.
+
+    Example:
+        printPrimesSieveAlgoOptimized(10)
+        Output: 2, 3, 5, 7
+    """
+    lst = [True] * (n + 1)
+    for i in range(2, int(n ** 0.5) + 1):
+        if lst[i]:
+            for j in range(i * i, n + 1, i):
+                lst[j] = False
+    for i in range(2, n + 1):
+        if lst[i]:
+            print(i)
+    return
+
+printPrimesSieveAlgoOptimized(10)
