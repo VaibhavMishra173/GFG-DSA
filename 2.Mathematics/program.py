@@ -268,3 +268,30 @@ def printPrimesSieveAlgoOptimized(n):
     return
 
 printPrimesSieveAlgoOptimized(10)
+
+def printPrimesSieveAlgoOptimizedShort(n):
+    """
+    Prints all prime numbers up to n using a short and optimized version of the Sieve of Eratosthenes algorithm.
+
+    This function iterates through numbers from 2 to n. For each prime number i, it prints i and marks all 
+    its multiples starting from i * i as non-prime. 
+
+    Args:
+        n (int): The upper limit (inclusive) for printing prime numbers.
+
+    Returns:
+        None: The function prints all prime numbers up to n.
+
+    Example:
+        printPrimesSieveAlgoOptimizedShort(10)
+        Output: 2, 3, 5, 7
+    """
+    lst = [True] * (n + 1)
+    for i in range(2, n + 1):
+        if lst[i]:
+            print(i)
+            for j in range(i * i, n + 1, i):
+                lst[j] = False
+    return
+
+printPrimesSieveAlgoOptimizedShort(10)
