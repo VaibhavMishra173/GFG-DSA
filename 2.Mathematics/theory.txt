@@ -1,0 +1,52 @@
+Mathematics
+In this we cover the following
+- Finding number of digits in a number
+- Arithmetic Progression
+- Geometric Progression
+- Quadratic equation
+- Mean
+- Median
+- Prime Number
+- Sieve of Eratosthenes
+- LCM
+- HCF
+- Factorial
+- Permutation
+- Combination
+- Modular Arithmetic
+- Modular Inverse
+
+Almost all the above are implemented in program file.
+
+Finding number of digits in a number
+Solution 1
+Simple Solution: A Simple Solution that comes in mind is:
+
+Check whether the number N is equal to zero.
+Increase the count of digits by 1 if N is not zero.
+Reduce the number by dividing it by 10.
+Repeat the above steps until the number is reduced to zero.
+
+Solution 2
+Better Solution: A better solution is to use mathematics to solve this problem. The number of digits in a number say N can be easily obtained by using the formula:
+number of digits in N = log10(N) + 1.
+
+Arithmetic Progression
+A sequence of numbers is said to be in an Arithmetic progression if the difference between any two consecutive terms is always the same. In simple terms, it means that the next number in the series is calculated by adding a fixed number to the previous number in the series. For example, 2, 4, 6, 8, 10 is an AP because the difference between any two consecutive terms in the series (common difference) is same (4 - 2 = 6 - 4 = 8 - 6 = 10 - 8 = 2).
+
+Geometric Progression
+A sequence of numbers is said to be in a Geometric progression if the ratio of any two consecutive terms is always the same. In simple terms, it means that the next number in the series is calculated by multiplying a fixed number to the previous number in the series. For example, 2, 4, 8, 16 is a GP because ratio of any two consecutive terms in the series (common ratio) is the same (4 / 2 = 8 / 4 = 16 / 8 = 2).
+
+Quadratic equation
+A quadratic equation is a second-order polynomial equation of a variable say x. The general form of a quadratic equation is given as:
+a*x2 + b*x + c = 0
+Where a,b and c are real known values and,
+a can't be zero.
+
+Mean
+Mean is defined as the average of a given set of data. Let us consider the sequence of numbers 2, 4, 4, 4, 5, 5, 7, 9, the mean (average) of this given sequence is 5.
+
+Median
+Median is the middle value of a set of data. To determine the median value in a sequence of numbers, the numbers must first be arranged in an ascending order.
+If the count of numbers in the sequence is ODD, the median value is the number that is in the middle, with the same amount of numbers below and above.
+If the count of numbers in the sequence is EVEN, the median is the average of the two middle values.
