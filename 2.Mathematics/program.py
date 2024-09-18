@@ -352,3 +352,32 @@ def computePowerOptimized(x, n):
         return temp * x
 
 print(computePowerOptimized(3, 5))  # Output: 243
+
+def computePowerBinaryExponation(x, n):
+    """
+    Computes the power of a number x raised to the exponent n using the binary exponentiation method.
+
+    Binary exponentiation is an efficient algorithm to compute x^n by breaking down the exponent into its 
+    binary representation. This method squares the base and multiplies the result when the current bit of 
+    the exponent is 1. The time complexity of this approach is O(log n).
+
+    Args:
+        x (int or float): The base number.
+        n (int): The exponent (the number of times to multiply the base)
+
+    Returns:
+        int or float: The result of x raised to the power n.
+
+    Example:
+        computePowerBinaryExponation(3, 5)
+        Output: 243 (since 3^5 = 243)
+    """
+    res = 1
+    while n > 0:
+        if n % 2 != 0:  # Check if the current bit of n is 1
+            res = res * x
+        x = x * x  # Square the base
+        n = n // 2  # Shift the bits of n by dividing by 2
+    return res
+
+print(computePowerBinaryExponation(3, 5))  # Output: 243
