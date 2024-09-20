@@ -1,0 +1,20 @@
+This track of the course covers the basics of "Bitwise Algorithms". 
+
+Binary Representation: We'll look at the binary representation of numbers .
+Set and Unset: We'll learn to set and unset the bits
+Toggling: We'll toggle the bits.
+Bitwise Operators: We'll use AND, OR, XOR, NOT, LShift, and RSHIFT operators.
+Algorithms: We'll get familiar with various bitwise algorithms that'll make problem solving easy.
+
+
+This is the first part of the Bitwise Operators in C++ which introduces us to the first 3 of the 6 bitwise operators in C++, namely:
+
+AND (&) operator
+OR (|) operator
+XOR (^) operator
+
+This is the second part of the Bitwise Operators in C++ which introduces us to the last 3 of the 6 bitwise operators in C++, namely:
+
+Left Shift Operator (<<)
+Right Shift Operator (>>)
+Bitwise Not operator
