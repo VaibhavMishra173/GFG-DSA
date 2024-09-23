@@ -79,3 +79,23 @@ def ifKthBitIsSetMethod1(n, k):
 # Example usage
 n, k = 5, 1
 print(ifKthBitIsSetMethod1(n, k))  # Output: True (because the 1st bit of 5 (binary 101) is 1)
+
+def ifKthBitIsSetMethod2(n, k):
+    """
+    Checks if the k-th bit of the number n is set (i.e., 1) using right shift.
+    
+    Args:
+        n (int): The number to check.
+        k (int): The bit position to check (1-based).
+    
+    Returns:
+        bool: True if the k-th bit is set, False otherwise.
+    """
+    if ((n >> (k - 1)) & 1) == 1:
+        return True
+    else:
+        return False
+
+# Example usage
+n, k = 13, 3
+print(ifKthBitIsSetMethod2(n, k))  # Output: True (because the 3rd bit of 13 (binary 1101) is 1)
