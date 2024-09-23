@@ -99,3 +99,24 @@ def ifKthBitIsSetMethod2(n, k):
 # Example usage
 n, k = 13, 3
 print(ifKthBitIsSetMethod2(n, k))  # Output: True (because the 3rd bit of 13 (binary 1101) is 1)
+
+def countSetBitNaive(n):
+    """
+    Counts the number of set bits (1s) in the binary representation of 'n' using a naive approach.
+    
+    Args:
+        n (int): The number to check.
+    
+    Returns:
+        int: The number of set bits in the binary representation of 'n'.
+    """
+    res = 0
+    while n > 0:
+        if n % 2 != 0:  # Checks if the least significant bit is 1
+            res += 1
+        n = n // 2  # Right shift the number by one position (integer division by 2)
+    return res
+
+# Example usage
+n = 13
+print(countSetBitNaive(n))  # Output: 3 (13 in binary is 1101, which has three 1s)
