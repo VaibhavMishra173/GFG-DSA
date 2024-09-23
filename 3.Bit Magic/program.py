@@ -162,3 +162,21 @@ def powerOf2Naive(n):
 # Example usage
 print(powerOf2Naive(8))   # Output: True (8 = 2^3)
 print(powerOf2Naive(13))  # Output: False (13 is not a power of 2)
+
+def powerOf2BrianKarningam(n):
+    """
+    Determines if the given number 'n' is a power of 2 using Brian Kernighan's algorithm.
+    
+    Args:
+        n (int): The number to check.
+    
+    Returns:
+        bool: True if 'n' is a power of 2, False otherwise.
+    """
+    if n == 0:
+        return False
+    return (n & (n - 1)) == 0
+
+# Example usage
+print(powerOf2BrianKarningam(8))   # Output: True (8 = 2^3)
+print(powerOf2BrianKarningam(13))  # Output: False (13 is not a power of 2)
