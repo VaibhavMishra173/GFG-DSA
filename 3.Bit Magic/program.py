@@ -120,3 +120,23 @@ def countSetBitNaive(n):
 # Example usage
 n = 13
 print(countSetBitNaive(n))  # Output: 3 (13 in binary is 1101, which has three 1s)
+
+def countSetBitbrianKerningamAlgo(n):
+    """
+    Counts the number of set bits (1s) in the binary representation of 'n' using the Brian Kernighan Algorithm.
+    
+    Args:
+        n (int): The number to check.
+    
+    Returns:
+        int: The number of set bits in the binary representation of 'n'.
+    """
+    res = 0
+    while n > 0:
+        n = n & (n - 1)  # Clears the least significant set bit
+        res += 1
+    return res
+
+# Example usage
+n = 13
+print(countSetBitbrianKerningamAlgo(n))  # Output: 3 (13 in binary is 1101, which has three 1s)
