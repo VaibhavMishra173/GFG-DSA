@@ -43,3 +43,19 @@ def bitwiseNot(n):
     return ~n
 
 print(bitwiseNot(3))  # Output: -4
+
+def bitwiseXOR(a, b):
+    """
+    Performs a bitwise XOR operation between two numbers.
+    
+    Args:
+        a (int): The first number.
+        b (int): The second number.
+    
+    Returns:
+        int: The result of the bitwise XOR operation between 'a' and 'b'.
+    """
+    return a ^ b
+
+# Example usage
+print(bitwiseXOR(5, 3))  # Output: 6
