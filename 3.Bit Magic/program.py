@@ -140,3 +140,25 @@ def countSetBitbrianKerningamAlgo(n):
 # Example usage
 n = 13
 print(countSetBitbrianKerningamAlgo(n))  # Output: 3 (13 in binary is 1101, which has three 1s)
+
+def powerOf2Naive(n):
+    """
+    Determines if the given number 'n' is a power of 2 using a naive approach.
+    
+    Args:
+        n (int): The number to check.
+    
+    Returns:
+        bool: True if 'n' is a power of 2, False otherwise.
+    """
+    if n == 0:
+        return False
+    while n != 1:
+        if n % 2 != 0:
+            return False
+        n //= 2  # Divide by 2
+    return True
+
+# Example usage
+print(powerOf2Naive(8))   # Output: True (8 = 2^3)
+print(powerOf2Naive(13))  # Output: False (13 is not a power of 2)
