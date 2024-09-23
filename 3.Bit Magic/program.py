@@ -59,3 +59,23 @@ def bitwiseXOR(a, b):
 
 # Example usage
 print(bitwiseXOR(5, 3))  # Output: 6
+
+def ifKthBitIsSetMethod1(n, k):
+    """
+    Checks if the k-th bit of the number n is set (i.e., 1).
+    
+    Args:
+        n (int): The number to check.
+        k (int): The bit position to check (1-based).
+    
+    Returns:
+        bool: True if the k-th bit is set, False otherwise.
+    """
+    if (n & (1 << (k - 1))) != 0:
+        return True
+    else:
+        return False
+
+# Example usage
+n, k = 5, 1
+print(ifKthBitIsSetMethod1(n, k))  # Output: True (because the 1st bit of 5 (binary 101) is 1)
