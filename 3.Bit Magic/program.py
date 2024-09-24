@@ -208,3 +208,42 @@ def findOdd(arr):
 
 arr = [4, 3, 4, 4, 4, 5, 5]
 print(findOdd(arr))  # Output: 3
+
+def findMissingNumber(arr):
+    """
+    Finds the missing number in an array containing numbers from 1 to n with one missing.
+
+    This function uses XOR to find the missing number in the range from 1 to n, where 
+    one number is missing from the array. The XOR of all numbers from 1 to n and the XOR 
+    of all elements in the array will result in the missing number because x ^ x = 0 and 
+    x ^ 0 = x.
+
+    Args:
+        arr (list): A list of integers containing numbers from 1 to n with one number missing.
+
+    Returns:
+        int: The missing number in the array.
+
+    Example:
+        arr = [1, 4, 3]
+        findMissingNumber(arr)
+        Output: 2
+    """
+    res = 0  # XOR of all numbers from 1 to n
+    arrRes = 0  # XOR of all elements in the array
+    n = len(arr) + 1  # The range of numbers from 1 to n (including the missing one)
+
+    # XOR all the numbers from 1 to n
+    for i in range(1, n + 1):
+        res = res ^ i
+
+    # XOR all the elements in the array
+    for num in arr:
+        arrRes = arrRes ^ num
+
+    # The missing number is the XOR of res and arrRes
+    return res ^ arrRes
+
+arr = [1, 4, 3]
+print(findMissingNumber(arr))  # Output: 2
+
