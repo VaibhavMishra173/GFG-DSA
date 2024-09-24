@@ -294,3 +294,40 @@ def oddAppearing(arr):
 
 arr = [3, 4, 3, 4, 5, 4, 4, 6, 7, 7]
 print(oddAppearing(arr))  # Output: (5, 6)
+
+def powerSet(s):
+    """
+    Generates all possible subsets (the power set) of a given string.
+
+    This function computes the power set of a string by treating each character as a 
+    bit in a binary number. It generates all possible subsets by iterating through 
+    numbers from 0 to 2^n - 1 (where n is the length of the string) and using the 
+    binary representation to determine whether a character is included in a subset.
+
+    Args:
+        s (str): The input string.
+
+    Returns:
+        list: A list containing all subsets (the power set) of the string.
+
+    Example:
+        s = "abc"
+        powerSet(s)
+        Output: ['', 'a', 'b', 'ab', 'c', 'ac', 'bc', 'abc']
+    """
+    n = len(s)
+    p = pow(2, n)  # Total number of subsets (2^n)
+    res = []
+    
+    # Loop through all numbers from 0 to 2^n - 1
+    for i in range(p):
+        subset = ""  # To store the current subset
+        for j in range(n):
+            if (i & (1 << j)) != 0:  # Check if the jth bit is set
+                subset += s[j]
+        res.append(subset)
+    
+    return res
+
+s = "abc"
+print(powerSet(s))  # Output: ['', 'a', 'b', 'ab', 'c', 'ac', 'bc', 'abc']
