@@ -180,3 +180,31 @@ def powerOf2BrianKarningam(n):
 # Example usage
 print(powerOf2BrianKarningam(8))   # Output: True (8 = 2^3)
 print(powerOf2BrianKarningam(13))  # Output: False (13 is not a power of 2)
+
+def findOdd(arr):
+    """
+    Finds the element that appears an odd number of times in the array.
+
+    This function uses the XOR operation to find the element that appears an odd number 
+    of times in the array. XOR has the property that x ^ x = 0 and x ^ 0 = x, which helps 
+    in canceling out numbers that appear an even number of times.
+
+    Args:
+        arr (list): A list of integers where all elements except one appear an even number 
+        of times. One element appears an odd number of times.
+
+    Returns:
+        int: The element that appears an odd number of times.
+
+    Example:
+        arr = [4, 3, 4, 4, 4, 5, 5]
+        findOdd(arr)
+        Output: 3
+    """
+    res = 0
+    for i in arr:
+        res = i ^ res  # XOR with res
+    return res
+
+arr = [4, 3, 4, 4, 4, 5, 5]
+print(findOdd(arr))  # Output: 3
