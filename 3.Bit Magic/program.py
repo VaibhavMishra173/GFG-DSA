@@ -247,3 +247,50 @@ def findMissingNumber(arr):
 arr = [1, 4, 3]
 print(findMissingNumber(arr))  # Output: 2
 
+def oddAppearing(arr):
+    """
+    Finds two elements in the array that appear an odd number of times.
+
+    This function finds two numbers that appear an odd number of times in an array where 
+    all other numbers appear an even number of times. It uses XOR to separate the numbers 
+    based on the rightmost set bit.
+
+    Steps:
+    - XOR all the elements to get the XOR of the two odd-appearing numbers.
+    - Find the rightmost set bit in the XOR result.
+    - Separate the numbers based on the rightmost set bit and XOR them separately to find 
+      the two odd-appearing numbers.
+
+    Args:
+        arr (list): A list of integers where exactly two numbers appear an odd number of times.
+
+    Returns:
+        tuple: A tuple containing the two numbers that appear an odd number of times.
+
+    Example:
+        arr = [3, 4, 3, 4, 5, 4, 4, 6, 7, 7]
+        oddAppearing(arr)
+        Output: (5, 6)
+    """
+    res1 = 0
+    res2 = 0
+    xor = 0
+    
+    # XOR all the elements to find XOR of the two odd appearing numbers
+    for i in arr:
+        xor = i ^ xor
+    
+    # Find the rightmost set bit in xor
+    sn = xor & ~(xor - 1)
+    
+    # Separate the numbers into two groups and XOR them
+    for i in range(0, len(arr)):
+        if (arr[i] & sn) != 0:
+            res1 = res1 ^ arr[i]
+        else:
+            res2 = res2 ^ arr[i]
+    
+    return res1, res2
+
+arr = [3, 4, 3, 4, 5, 4, 4, 6, 7, 7]
+print(oddAppearing(arr))  # Output: (5, 6)
