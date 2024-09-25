@@ -1,0 +1,8 @@
+This track of the course covers the topic "Recursion".
+
+In details, this track will cover:
+
+Recursion Basics: What exactly is recursion and why it's important.
+Advantages: Why is recursion code easier to write than it's the iterative counterpart.
+Types: We'll look at head recursion and Tail recursion.
+Problems: How do we approach a question that is to be solved by recursion.
