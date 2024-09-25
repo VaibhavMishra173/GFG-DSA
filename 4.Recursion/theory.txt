@@ -6,3 +6,37 @@ Recursion Basics: What exactly is recursion and why it's important.
 Advantages: Why is recursion code easier to write than it's the iterative counterpart.
 Types: We'll look at head recursion and Tail recursion.
 Problems: How do we approach a question that is to be solved by recursion.
+
+What is Recursion?
+The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called as recursive function. Using recursive algorithm, certain problems can be solved quite easily. Examples of such problems are Towers of Hanoi (TOH), Inorder/Preorder/Postorder Tree Traversals, DFS of Graph, etc.
+
+What is the base condition in recursion?
+In a recursive program, the solution to the base case is provided and the solution of bigger problem is expressed in terms of smaller problems.
+int fact(int n)
+{
+    if (n < = 1) // base case
+        return 1;
+    else    
+        return n*fact(n-1);    
+}
+In the above example, the base case for n < = 1 is defined and a larger value of a number can be solved by converting to a smaller one till the base case is reached.
+
+How a particular problem is solved using recursion?
+
+The idea is to represent a problem in terms of one or more smaller problems, and add one or more base conditions that stop recursion. For example, we compute factorial n if we know factorial of (n-1). The base case for factorial would be n = 0. We return 1 when n = 0.
+
+Why Stack Overflow error occurs in recursion? If the base case is not reached or not defined, then the stack overflow problem may arise. Let us take an example to understand this.
+
+int fact(int n)
+{
+    // wrong base case (it may cause
+    // stack overflow).
+    if (n == 100) 
+        return 1;
+
+    else
+        return n*fact(n-1);
+}
+If fact(10) is called, it will call fact(9), fact(8), fact(7), and so on but the number will never reach 100. So, the base case is not reached. If the memory is exhausted by these functions on the stack, it will cause a stack overflow error.
+
+
