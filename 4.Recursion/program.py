@@ -134,3 +134,27 @@ def fibonacci(n):
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 print(fibonacci(5))
+
+def sumOfN(n):
+    """
+    Recursively calculates the sum of all integers from 1 to n.
+
+    The function works by recursively adding the current value of n to the sum 
+    of integers from 1 to n-1. The base case is when n equals 1, in which case 
+    the function returns 1.
+
+    Args:
+        n (int): The integer up to which the sum is calculated.
+        
+    Returns:
+        int: The sum of all integers from 1 to n.
+        
+    Example:
+        >>> sumOfN(5)
+        15
+    """
+    if n == 1:
+        return 1
+    return n + sumOfN(n - 1)
+
+print(sumOfN(5))
