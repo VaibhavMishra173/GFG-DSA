@@ -79,3 +79,29 @@ def print1ToN(n):
     print(n)
 
 print1ToN(16)
+
+def factorial(n):
+    """
+    Recursively calculates the factorial of a given number n.
+
+    The factorial of a number n is the product of all positive integers less 
+    than or equal to n. The function uses recursion, where the factorial of n 
+    is calculated as n * factorial(n-1), with the base case being that the 
+    factorial of 0 or 1 is 1.
+
+    Args:
+        n (int): The integer for which the factorial is to be calculated.
+        
+    Returns:
+        int: The factorial of the input number n.
+        
+    Example:
+        >>> factorial(5)
+        120
+    """
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))
+
