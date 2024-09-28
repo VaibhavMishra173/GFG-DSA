@@ -158,3 +158,35 @@ def sumOfN(n):
     return n + sumOfN(n - 1)
 
 print(sumOfN(5))
+
+def isPalindrome(s, start, end):
+    """
+    Recursively checks whether a given string s is a palindrome.
+
+    A palindrome is a word, phrase, or sequence that reads the same 
+    backward as forward. The function compares the characters at the 
+    start and end of the string and continues inward until all characters 
+    are checked. If all character pairs are equal, the string is a palindrome.
+
+    Args:
+        s (str): The string to check for palindrome.
+        start (int): The starting index for comparison.
+        end (int): The ending index for comparison.
+        
+    Returns:
+        bool: True if the string is a palindrome, otherwise False.
+        
+    Example:
+        >>> isPalindrome('abbcbba', 0, len('abbcbba')-1)
+        True
+        >>> isPalindrome('geeks', 0, len('geeks')-1)
+        False
+    """
+    if start >= end:
+        return True
+    return (s[start] == s[end] and isPalindrome(s, start + 1, end - 1))
+
+s = 'abbcbba'
+s1 = 'geeks'
+print(isPalindrome(s, 0, len(s) - 1))   # Output: True
+print(isPalindrome(s1, 0, len(s1) - 1)) # Output: False
