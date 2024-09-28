@@ -105,3 +105,32 @@ def factorial(n):
 
 print(factorial(5))
 
+def fibonacci(n):
+    """
+    Recursively calculates the nth Fibonacci number.
+
+    The Fibonacci sequence is defined as:
+    - Fibonacci(0) = 0
+    - Fibonacci(1) = 1
+    - Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2) for n > 1
+
+    The function uses recursion to compute the nth Fibonacci number by 
+    summing the two preceding numbers in the sequence.
+
+    Args:
+        n (int): The position in the Fibonacci sequence to compute.
+        
+    Returns:
+        int: The nth Fibonacci number.
+        
+    Example:
+        >>> fibonacci(5)
+        5
+    """
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(5))
