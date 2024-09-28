@@ -51,3 +51,31 @@ def printNTo1(n):
     printNTo1(n - 1)
 
 printNTo1(16)
+
+def print1ToN(n):
+    """
+    Recursively prints numbers from 1 up to n.
+
+    The function works by first calling itself with n-1, and then printing the
+    current value of n, ensuring that numbers are printed in ascending order.
+
+    Args:
+        n (int): The ending integer to print up to.
+        
+    Returns:
+        None: The function prints the numbers without returning anything.
+        
+    Example:
+        >>> print1ToN(5)
+        1
+        2
+        3
+        4
+        5
+    """
+    if n == 0:
+        return
+    print1ToN(n - 1)
+    print(n)
+
+print1ToN(16)
