@@ -284,3 +284,53 @@ def generateSubsets(s, curr, i):
 # Example usage:
 s = "abc"
 generateSubsets(s, '', 0)
+
+def towerOfHanoi(n, a, b, c):
+    """
+    Solves the Tower of Hanoi problem for `n` disks.
+
+    The Tower of Hanoi is a mathematical puzzle where you have three rods (A, B, and C) and `n` disks of different sizes 
+    which can slide onto any rod. The puzzle starts with the disks neatly stacked in ascending order of size on one rod, 
+    the smallest at the top, making a conical shape.
+
+    The objective of the puzzle is to move the entire stack to another rod, following these rules:
+    1. Only one disk can be moved at a time.
+    2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack.
+    3. No larger disk may be placed on top of a smaller disk.
+
+    Parameters:
+    - n (int): Number of disks.
+    - a (str): The name of the source rod.
+    - b (str): The name of the auxiliary rod.
+    - c (str): The name of the target rod.
+
+    This function prints the steps required to solve the Tower of Hanoi problem for `n` disks.
+    
+    Example:
+        towerOfHanoi(2, 'A', 'B', 'C')
+        # Output:
+        # Move 1 from A to C
+        # Move 2 from A to B
+        # Move 1 from C to B
+
+        towerOfHanoi(3, 'A', 'B', 'C')
+        # Output:
+        # Move 1 from A to C
+        # Move 2 from A to B
+        # Move 1 from C to B
+        # Move 3 from A to C
+        # Move 1 from B to A
+        # Move 2 from B to C
+        # Move 1 from A to C
+    """
+    if n == 1:
+        print(f'Move 1 from {a} to {c}')
+        return
+    towerOfHanoi(n-1, a, c, b)
+    print(f'Move {n} from {a} to {c}')
+    towerOfHanoi(n-1, b, a, c)
+
+
+towerOfHanoi(2, 'a', 'b', 'c')
+print('------------------')
+towerOfHanoi(3, 'a', 'b', 'c')
