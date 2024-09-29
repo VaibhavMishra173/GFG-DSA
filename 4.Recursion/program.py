@@ -334,3 +334,38 @@ def towerOfHanoi(n, a, b, c):
 towerOfHanoi(2, 'a', 'b', 'c')
 print('------------------')
 towerOfHanoi(3, 'a', 'b', 'c')
+
+def josephusProblem(n, k):
+    """
+    Solves the Josephus problem using recursion.
+
+    In the Josephus problem, there are `n` people standing in a circle. Starting from a particular position, 
+    every `k`-th person is eliminated from the circle, and the process continues until only one person remains. 
+    The function returns the position (0-based index) of the last remaining person.
+
+    Parameters:
+    n (int): The number of people in the circle.
+    k (int): The step count at which people are eliminated (1-based).
+
+    Returns:
+    int: The position (0-based index) of the last remaining person.
+    
+    Examples:
+    >>> josephusProblem(4, 2)
+    0
+    >>> josephusProblem(5, 3)
+    3
+    """
+    if n == 1:
+        return 0
+    else:
+        return (josephusProblem(n-1, k) + k) % n
+
+# Test cases
+n = 4
+k = 2
+print(josephusProblem(n, k))  # Output: 0
+
+n = 5
+k = 3
+print(josephusProblem(n, k))  # Output: 3
