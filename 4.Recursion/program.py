@@ -216,3 +216,43 @@ def sumOfDigits(n):
 
 
 print(sumOfDigits(123))
+
+def maxPiece(n, a, b, c):
+    """
+    Recursively finds the maximum number of pieces that a given length `n` can be divided into,
+    using pieces of lengths `a`, `b`, and `c`.
+
+    This function attempts to cut the length `n` into the maximum possible number of pieces, 
+    where each piece can have a length of `a`, `b`, or `c`. If it's not possible to cut 
+    exactly into such pieces, it returns -1.
+
+    Parameters:
+    n (int): The total length to be divided.
+    a (int): The length of the first type of piece.
+    b (int): The length of the second type of piece.
+    c (int): The length of the third type of piece.
+
+    Returns:
+    int: The maximum number of pieces `n` can be divided into, or -1 if it's not possible.
+
+    Example:
+    >>> maxPiece(23, 9, 11, 12)
+    2
+
+    >>> maxPiece(9, 2, 2, 2)
+    4
+    """
+    if n == 0:
+        return 0
+    if n < 0:
+        return -1
+
+    res = max(maxPiece(n - a, a, b, c), maxPiece(n - b, a, b, c), maxPiece(n - c, a, b, c))
+
+    if res == -1:
+        return -1
+    return res + 1
+
+
+print(maxPiece(23, 9, 11, 12))  # Output: 2
+print(maxPiece(9, 2, 2, 2))    # Output: 4
