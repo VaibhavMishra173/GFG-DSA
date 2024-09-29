@@ -369,3 +369,47 @@ print(josephusProblem(n, k))  # Output: 0
 n = 5
 k = 3
 print(josephusProblem(n, k))  # Output: 3
+
+def subsetSum(arr, n, s):
+    """
+    Determines the number of subsets of a given array that sum up to a specific target value.
+
+    This function uses recursion to explore all possible subsets of the array and counts how many of them
+    have a sum equal to the target value `s`.
+
+    Parameters:
+    arr (list of int): The list of integers from which subsets are formed.
+    n (int): The number of elements to consider from the array.
+    s (int): The target sum for the subsets.
+
+    Returns:
+    int: The number of subsets that sum up to the target value `s`.
+
+    Base Cases:
+    - If the sum `s` is 0, the function returns 1, as the empty subset always has a sum of 0.
+    - If `n` is 0 and `s` is not 0, the function returns 0, since no subset can be formed without elements.
+
+    Example:
+    >>> arr = [10, 5, 2, 3, 6]
+    >>> s = 8
+    >>> subsetSum(arr, len(arr), s)
+    2  # Subsets are [5, 3] and [2, 6]
+    """
+    # Base cases
+    if s == 0:
+        return 1  # A subset with sum 0 always exists (the empty subset)
+    if n == 0:
+        return 0  # If no elements are left and sum is not zero, no subset can be formed
+
+    # If the current element is greater than the sum, ignore it
+    if arr[n-1] > s:
+        return subsetSum(arr, n-1, s)
+
+    # Otherwise, consider the element in the subset or exclude it
+    return subsetSum(arr, n-1, s) + subsetSum(arr, n-1, s - arr[n-1])
+
+
+# Test case
+arr = [10, 5, 2, 3, 6]
+s = 8
+print(subsetSum(arr, len(arr), s))  # Output: 2
