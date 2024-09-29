@@ -190,3 +190,29 @@ s = 'abbcbba'
 s1 = 'geeks'
 print(isPalindrome(s, 0, len(s) - 1))   # Output: True
 print(isPalindrome(s1, 0, len(s1) - 1)) # Output: False
+
+def sumOfDigits(n):
+    """
+    Recursively calculates the sum of digits of a given number.
+
+    This function takes a non-negative integer `n` and returns the sum of its digits. 
+    It recursively divides the number by 10 and adds the remainder to the result 
+    of the recursive call with the quotient.
+
+    Parameters:
+    n (int): A non-negative integer whose digits are to be summed.
+
+    Returns:
+    int: The sum of the digits of the number `n`.
+
+    Example:
+    >>> sumOfDigits(123)
+    6
+    """
+    if n < 10:
+        return n
+
+    return n % 10 + sumOfDigits(n // 10)
+
+
+print(sumOfDigits(123))
