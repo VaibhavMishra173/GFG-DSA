@@ -256,3 +256,31 @@ def maxPiece(n, a, b, c):
 
 print(maxPiece(23, 9, 11, 12))  # Output: 2
 print(maxPiece(9, 2, 2, 2))    # Output: 4
+
+def generateSubsets(s, curr, i):
+    """
+    Recursively generates all subsets of a given string.
+
+    This function generates all possible subsets (combinations of characters) 
+    of the string `s` by recursively adding or skipping characters.
+
+    Parameters:
+    s (str): The original string from which subsets are generated.
+    curr (str): The current subset being formed.
+    i (int): The index of the current character being considered in the string.
+
+    Example:
+    >>> generateSubsets("abc", '', 0)
+    '', 'c', 'b', 'bc', 'a', 'ac', 'ab', 'abc'
+    """
+    if i == len(s):
+        print(curr)
+        return
+    # Exclude the current character and move to the next
+    generateSubsets(s, curr, i + 1)
+    # Include the current character and move to the next
+    generateSubsets(s, curr + s[i], i + 1)
+
+# Example usage:
+s = "abc"
+generateSubsets(s, '', 0)
