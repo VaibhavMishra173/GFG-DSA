@@ -413,3 +413,34 @@ def subsetSum(arr, n, s):
 arr = [10, 5, 2, 3, 6]
 s = 8
 print(subsetSum(arr, len(arr), s))  # Output: 2
+
+def perOfStr(s):
+    """
+    Generates all permutations of the given string using recursion.
+
+    Parameters:
+    s (str): The input string.
+
+    Returns:
+    list of str: A list containing all permutations of the string.
+    
+    Example:
+    >>> perOfStr('abc')
+    ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+    """
+    # Base case: If the string has only one character, return it as the only permutation
+    if len(s) == 1:
+        return [s]
+
+    # Recursive case: Generate permutations by fixing each character in the string
+    perms = []
+    for i in range(len(s)):
+        # Remove the current character and get permutations of the remaining string
+        remaining = s[:i] + s[i+1:]
+        for p in perOfStr(remaining):
+            perms.append(s[i] + p)
+
+    return perms
+
+# Test case
+print(perOfStr('abc'))  # Output: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
