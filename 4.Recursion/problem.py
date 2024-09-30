@@ -58,3 +58,61 @@ def isLucky(N, step=2):
 # Test cases
 print(isLucky(5))   # Output: False (0)
 print(isLucky(19))  # Output: True (1)
+
+# Mapping of digits to corresponding letters on a phone keypad
+keypad = {
+    2: "abc",
+    3: "def",
+    4: "ghi",
+    5: "jkl",
+    6: "mno",
+    7: "pqrs",
+    8: "tuv",
+    9: "wxyz"
+}
+
+def possibleWords(a, N):
+    """
+    Generates all possible words from the given array of phone digits.
+    
+    Parameters:
+    a (list of int): Array representing the phone digits.
+    N (int): The length of the array.
+
+    Returns:
+    list of str: A list containing all possible words formed from the digits.
+    """
+    # List to store the results
+    result = []
+    
+    # Helper function to perform recursive backtracking
+    def backtrack(index, current_word):
+        # Base case: If the current_word has N letters, add it to the result
+        if index == N:
+            result.append(current_word)
+            return
+        
+        # Get the corresponding letters for the current digit
+        letters = keypad[a[index]]
+        
+        # For each letter, continue building the word recursively
+        for letter in letters:
+            backtrack(index + 1, current_word + letter)
+    
+    # Start the backtracking process from the first digit
+    backtrack(0, "")
+    
+    # Return the result list in lexicographical order
+    return sorted(result)
+
+
+# Example test cases
+a = [2, 3, 4]
+N = len(a)
+print(possibleWords(a, N))
+# Output: ['adg', 'adh', 'adi', 'aeg', 'aeh', 'aei', 'afg', 'afh', 'afi', 'bdg', 'bdh', 'bdi', 'beg', 'beh', 'bei', 'bfg', 'bfh', 'bfi', 'cdg', 'cdh', 'cdi', 'ceg', 'ceh', 'cei', 'cfg', 'cfh', 'cfi']
+
+a = [3, 4, 5]
+N = len(a)
+print(possibleWords(a, N))
+# Output: ['dgj', 'dgk', 'dgl', 'dhj', 'dhk', 'dhl', 'dij', 'dik', 'dil', 'egj', 'egk', 'egl', 'ehj', 'ehk', 'ehl', 'eij', 'eik', 'eil', 'fgj', 'fgk', 'fgl', 'fhj', 'fhk', 'fhl', 'fij', 'fik', 'fil']
