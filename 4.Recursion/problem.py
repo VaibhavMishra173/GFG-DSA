@@ -27,3 +27,34 @@ def digitalRoot(n):
 
 # Test case
 print(digitalRoot(99999))  # Output: 9
+
+def isLucky(N, step=2):
+    """
+    Determines if a number N is a lucky number.
+
+    A lucky number is one that is not removed through the recursive deletion process
+    as described in the problem.
+
+    Parameters:
+    N (int): The number to check.
+    step (int): The current step of the deletion process (default is 2).
+
+    Returns:
+    bool: True if the number is lucky, False otherwise.
+    """
+    # Base case: if the current step exceeds N, then N survived all deletions
+    if step > N:
+        return True
+    
+    # If N is divisible by the current step, it means N gets deleted
+    if N % step == 0:
+        return False
+    
+    # Recursively check for the next step with updated position of N
+    # N's new position in the next iteration is N - N//step (the remaining numbers after deletion)
+    new_N = N - (N // step)
+    return isLucky(new_N, step + 1)
+
+# Test cases
+print(isLucky(5))   # Output: False (0)
+print(isLucky(19))  # Output: True (1)
