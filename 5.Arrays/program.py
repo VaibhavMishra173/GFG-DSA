@@ -63,3 +63,26 @@ def deleteArr(l, e):
 l = [1, 2, 6, 3, 4, 8]
 e = 9
 print(deleteArr(l, e))
+
+def indexOfLargestEleInArr(l):
+    """
+    Finds the index of the largest element in the list.
+
+    Args:
+        l (list): The list to search through.
+
+    Returns:
+        int: The index of the largest element. If the list is empty, returns -1.
+    """
+    m = float('-inf')  # Initialize m to negative infinity
+    ind = -1  # Initialize ind to -1 in case the list is empty
+    
+    for i in range(len(l)):
+        if l[i] > m:
+            m = l[i]
+            ind = i
+    
+    return ind
+
+l = [1, 9, 2, 6, 3, 4, 8]
+print(indexOfLargestEleInArr(l))
