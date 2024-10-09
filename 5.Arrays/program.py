@@ -133,3 +133,22 @@ l = [1, 9, 2, 6, 3, 4, 8, 13]
 l1 = [1, 2, 3, 4, 8]
 print(isSorted(l))   # Output: False
 print(isSorted(l1))  # Output: True
+
+
+def reverseNaive(l):
+    """
+    Reverses the input list.
+
+    Args:
+        l (list): The list to reverse.
+
+    Returns:
+        list: A new list with the elements in reverse order.
+    """
+    res = []
+    for i in range(len(l) - 1, -1, -1):  # Loop correctly from len(l)-1 to 0
+        res.append(l[i])
+    return res
+
+l = [1, 9, 2, 6, 3, 4, 8, 13]
+print(reverseNaive(l))  # Output: [13, 8, 4, 3, 6, 2, 9, 1]
