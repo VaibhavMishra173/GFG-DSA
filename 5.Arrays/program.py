@@ -86,3 +86,30 @@ def indexOfLargestEleInArr(l):
 
 l = [1, 9, 2, 6, 3, 4, 8]
 print(indexOfLargestEleInArr(l))
+
+def indexOfSecondLargestEleInArr(l):
+    if len(l) < 2:
+        return -1  # Return -1 if there are fewer than 2 elements
+
+    m = float('-inf')  # Largest element
+    snd = float('-inf')  # Second largest element
+    ind = -1  # Index of largest element
+    sndIdx = -1  # Index of second largest element
+
+    for i in range(len(l)):
+        if l[i] > m:
+            # Update second largest before largest
+            snd = m
+            sndIdx = ind
+            # Update largest
+            m = l[i]
+            ind = i
+        elif l[i] > snd and l[i] != m:
+            # Update second largest only if current element is not equal to largest
+            snd = l[i]
+            sndIdx = i
+    
+    return sndIdx
+
+l = [1, 9, 2, 6, 3, 4, 8, 13]
+print(indexOfSecondLargestEleInArr(l))  # Output: Index of second largest element
