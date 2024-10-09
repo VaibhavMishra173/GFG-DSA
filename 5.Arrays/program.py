@@ -152,3 +152,27 @@ def reverseNaive(l):
 
 l = [1, 9, 2, 6, 3, 4, 8, 13]
 print(reverseNaive(l))  # Output: [13, 8, 4, 3, 6, 2, 9, 1]
+
+def reverse(l):
+    """
+    Reverses the input list in place.
+
+    Args:
+        l (list): The list to reverse.
+
+    Returns:
+        list: The same list with its elements reversed in place.
+    """
+    low = 0
+    high = len(l) - 1
+    
+    # Swap elements from the start and end moving towards the middle
+    while low < high:
+        l[low], l[high] = l[high], l[low]
+        low += 1
+        high -= 1
+    
+    return l
+
+l = [1, 9, 2, 6, 3, 4, 8, 13]
+print(reverse(l))  # Output: [13, 8, 4, 3, 6, 2, 9, 1]
