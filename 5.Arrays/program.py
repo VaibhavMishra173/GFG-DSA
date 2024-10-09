@@ -176,3 +176,26 @@ def reverse(l):
 
 l = [1, 9, 2, 6, 3, 4, 8, 13]
 print(reverse(l))  # Output: [13, 8, 4, 3, 6, 2, 9, 1]
+
+def removeDuplicateFromSortedArray(l):
+    """
+    Removes duplicates from a sorted array.
+
+    Args:
+        l (list): A sorted list from which to remove duplicates.
+
+    Returns:
+        list: A new list containing only unique elements from the input list.
+    """
+    if not l:  # Check if the input list is empty
+        return []
+
+    uniq = [l[0]]  # Initialize with the first element
+    for i in range(1, len(l)):
+        if uniq[-1] != l[i]:  # Compare with the last unique element
+            uniq.append(l[i])  # Add unique element to the list
+            
+    return uniq
+
+l = [1, 2, 3, 3, 4, 8, 8, 13]
+print(removeDuplicateFromSortedArray(l))  # Output: [1, 2, 3, 4, 8, 13]
