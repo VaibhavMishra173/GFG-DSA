@@ -113,3 +113,23 @@ def indexOfSecondLargestEleInArr(l):
 
 l = [1, 9, 2, 6, 3, 4, 8, 13]
 print(indexOfSecondLargestEleInArr(l))  # Output: Index of second largest element
+
+def isSorted(l):
+    """
+    Checks if the list is sorted in ascending order.
+
+    Args:
+        l (list): The list to check.
+
+    Returns:
+        bool: True if the list is sorted in ascending order, False otherwise.
+    """
+    for i in range(len(l) - 1):
+        if l[i] > l[i + 1]:
+            return False  # As soon as we find an out-of-order element, return False
+    return True  # If no out-of-order elements are found, return True
+
+l = [1, 9, 2, 6, 3, 4, 8, 13]
+l1 = [1, 2, 3, 4, 8]
+print(isSorted(l))   # Output: False
+print(isSorted(l1))  # Output: True
