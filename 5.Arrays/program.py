@@ -199,3 +199,27 @@ def removeDuplicateFromSortedArray(l):
 
 l = [1, 2, 3, 3, 4, 8, 8, 13]
 print(removeDuplicateFromSortedArray(l))  # Output: [1, 2, 3, 4, 8, 13]
+
+def removeDuplicateFromSortedArrayEff(l):
+    """
+    Removes duplicates from a sorted array in place and returns the new length of the array.
+
+    Args:
+        l (list): A sorted list from which to remove duplicates.
+
+    Returns:
+        list: The same list with duplicates removed, truncated to the new length.
+    """
+    if not l:  # Check if the input list is empty
+        return []
+
+    res = 1  # Initialize a variable to track the position for unique elements
+    for i in range(1, len(l)):
+        if l[i] != l[i - 1]:  # Compare with the previous element
+            l[res] = l[i]  # Place the unique element at the current position
+            res += 1  # Move to the next position for the next unique element
+
+    return l[:res]  # Return the modified list up to the new length
+
+l = [1, 2, 3, 3, 4, 8, 8, 13]
+print(removeDuplicateFromSortedArrayEff(l))  # Output: [1, 2, 3, 4, 8, 13]
