@@ -322,3 +322,33 @@ def findLeader(l):
 
 l = [7, 10, 4, 3, 6, 5, 2]
 print(findLeader(l))
+
+def maxDifferenceOfPair(l):
+    """
+    Finds the maximum difference between any two elements in the list where the larger element comes after the smaller one.
+
+    Args:
+    l (list): A list of integers.
+
+    Returns:
+    int: The maximum difference between any two elements where the larger element comes after the smaller element.
+
+    Example:
+    >>> maxDifferenceOfPair([2, 3, 10, 6, 4, 8, 1])
+    8
+    """
+    # Initialize the result with the difference between the first two elements
+    res = l[1] - l[0]
+    minVal = l[0]  # Initialize the minimum value as the first element
+
+    # Traverse the list starting from the second element
+    for j in range(1, len(l)):
+        # Update the result with the maximum difference found so far
+        res = max(res, l[j] - minVal)
+        # Update the minimum value encountered so far
+        minVal = min(minVal, l[j])
+
+    return res
+
+l = [2, 3, 10, 6, 4, 8, 1]
+print(maxDifferenceOfPair(l))
