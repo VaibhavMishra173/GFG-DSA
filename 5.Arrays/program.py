@@ -269,3 +269,27 @@ def leftRotate(l):
 
 l = [1, 2, 3, 4, 5]
 print(leftRotate(l))
+
+def leftRotateByD(l, d):
+    """
+    Rotates the given list to the left by 'd' positions.
+
+    Args:
+    l (list): A list of elements.
+    d (int): The number of positions to rotate the list to the left.
+
+    Returns:
+    list: A modified list where all elements are shifted 'd' positions to the left,
+          and the first 'd' elements are moved to the end.
+
+    Example:
+    >>> leftRotateByD([1, 2, 3, 4, 5], 2)
+    [3, 4, 5, 1, 2]
+    """
+    res = l[d:]  # Slice the list from index 'd' to the end
+    res.extend(l[0:d])  # Extend the list with the first 'd' elements
+    return res
+
+l = [1, 2, 3, 4, 5]
+d = 2
+print(leftRotateByD(l, d))
