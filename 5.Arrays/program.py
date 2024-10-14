@@ -293,3 +293,32 @@ def leftRotateByD(l, d):
 l = [1, 2, 3, 4, 5]
 d = 2
 print(leftRotateByD(l, d))
+
+def findLeader(l):
+    """
+    Finds all the leaders in the list. A leader is an element that is greater than all the elements to its right.
+
+    Args:
+    l (list): A list of integers.
+
+    Returns:
+    list: A list of leaders in the order they are found.
+
+    Example:
+    >>> findLeader([7, 10, 4, 3, 6, 5, 2])
+    [2, 5, 6, 10]
+    """
+    n = len(l)
+    res = [l[n-1]]  # The last element is always a leader
+    m = res[0]  # Initialize the max to the last element
+
+    # Traverse the list from right to left
+    for i in range(n-2, -1, -1):
+        if l[i] > m:  # Compare current element with the max so far
+            res.append(l[i])
+            m = l[i]  # Update the max to the new leader
+    
+    return res[::-1]  # Reverse the result to maintain the original order
+
+l = [7, 10, 4, 3, 6, 5, 2]
+print(findLeader(l))
