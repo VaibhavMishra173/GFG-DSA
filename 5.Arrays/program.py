@@ -223,3 +223,27 @@ def removeDuplicateFromSortedArrayEff(l):
 
 l = [1, 2, 3, 3, 4, 8, 8, 13]
 print(removeDuplicateFromSortedArrayEff(l))  # Output: [1, 2, 3, 4, 8, 13]
+
+def moveAllZeroToEnd(l):
+    """
+    Moves all zeros in the given list to the end while maintaining the order of non-zero elements.
+
+    Args:
+    l (list): A list of integers.
+
+    Returns:
+    list: A modified list where all zeros are moved to the end, and the order of non-zero elements is preserved.
+
+    Example:
+    >>> moveAllZeroToEnd([8, 5, 0, 10, 0, 20])
+    [8, 5, 10, 20, 0, 0]
+    """
+    cnt = 0  # Counter for tracking position of non-zero elements
+    for i in range(len(l)):
+        if l[i] != 0:
+            l[i], l[cnt] = l[cnt], l[i]  # Swap non-zero element with the element at 'cnt'
+            cnt += 1  # Increment count for non-zero elements
+    return l
+
+l = [8, 5, 0, 10, 0, 20]
+print(moveAllZeroToEnd(l))
