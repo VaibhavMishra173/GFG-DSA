@@ -247,3 +247,25 @@ def moveAllZeroToEnd(l):
 
 l = [8, 5, 0, 10, 0, 20]
 print(moveAllZeroToEnd(l))
+
+def leftRotate(l):
+    """
+    Rotates the given list to the left by one position.
+
+    Args:
+    l (list): A list of elements.
+
+    Returns:
+    list: A modified list where all elements are shifted one position to the left, 
+          and the first element is moved to the end of the list.
+
+    Example:
+    >>> leftRotate([1, 2, 3, 4, 5])
+    [2, 3, 4, 5, 1]
+    """
+    res = l[1:]  # Slice the list from the second element to the end
+    res.append(l[0])  # Append the first element to the end
+    return res
+
+l = [1, 2, 3, 4, 5]
+print(leftRotate(l))
