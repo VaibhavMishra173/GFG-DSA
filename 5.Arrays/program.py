@@ -352,3 +352,35 @@ def maxDifferenceOfPair(l):
 
 l = [2, 3, 10, 6, 4, 8, 1]
 print(maxDifferenceOfPair(l))
+
+def freqOfEachElementSorted(l):
+    """
+    Prints the frequency of each element in a sorted list.
+
+    Args:
+    l (list): A sorted list of elements.
+
+    Example:
+    >>> freqOfEachElementSorted([10, 10, 10, 25, 30, 30])
+    10 3
+    25 1
+    30 2
+    """
+    if not l:  # If the list is empty, return
+        return
+    
+    freq = 1  # Initialize frequency of the first element
+    n = len(l)
+    
+    for i in range(1, n):
+        if l[i] == l[i-1]:  # If the current element is the same as the previous one
+            freq += 1  # Increment the frequency
+        else:
+            print(l[i-1], freq)  # Print the element and its frequency
+            freq = 1  # Reset frequency for the new element
+    
+    # Print the frequency of the last element
+    print(l[n-1], freq)
+
+l = [10, 10, 10, 25, 30, 30]
+freqOfEachElementSorted(l)
